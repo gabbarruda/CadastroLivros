@@ -26,7 +26,7 @@ public class Main {
                     Pessoa novoAutor = new Pessoa();
 
                     System.out.println("Digite o nome do autor: ");
-                    novoAutor.nome = scanner.next();
+                    novoLivro.nome = scanner.next();
 
                     System.out.println("Digite o valor: ");
                     novoLivro.preco = Float.parseFloat(scanner.next());
@@ -37,6 +37,7 @@ public class Main {
 
                     novoLivro.dataNascimento = date;
 
+
                     if (periodo.getYears() >= 18) {
                         System.out.println("A pessoa tem mais de 18 anos");
                     } else {
@@ -44,8 +45,11 @@ public class Main {
                         break;
                     }
 
-                    break;
+                    listaLivros.add(novoLivro);
 
+                    System.out.println("Cadastro realizado com sucesso!");
+
+                    break;
                 case 2:
                     if (listaLivros.size() > 0) {
                         for (Livros cadaLivro : listaLivros) {
@@ -53,8 +57,7 @@ public class Main {
                             System.out.println("Nome: " + cadaLivro.nome);
                             System.out.println("Preço: " + cadaLivro.preco);
                             System.out.println("Data de Nascimento: " + cadaLivro.dataNascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-
-
+                            System.out.println();
                         }
                         opcaoLivro = scanner.nextInt();
 
@@ -68,11 +71,11 @@ public class Main {
                 System.out.println("Voltando ao menu anterior");
                 break;
             default:
+
                 System.out.println("Opção inválida, por favor digite uma opção válida!");
                 break;
         }
 
         } while (opcao != 0);
-    break;
     }
 }

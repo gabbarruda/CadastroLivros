@@ -6,5 +6,6 @@ public class Livros {
     public float preco;
     public LocalDate dataNascimento;
 
+    public String nome;
 }
 
