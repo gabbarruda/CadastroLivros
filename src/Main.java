@@ -38,10 +38,10 @@ public class Main {
                     novoLivro.dataNascimento = date;
 
 
-                    if (periodo.getYears() >= 18) {
-                        System.out.println("A pessoa tem mais de 18 anos");
+                    if (periodo.getYears() >5) {
+                        System.out.println("A pessoa tem mais de 5 anos");
                     } else {
-                        System.out.println("A pessoa tem menos de 18 anos. Retornando menu...");
+                        System.out.println("A pessoa tem menos de 5 anos. Retornando menu...");
                         break;
                     }
 
