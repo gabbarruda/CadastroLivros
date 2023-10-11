@@ -6,17 +6,73 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Livro> listaLivros = new ArrayList<>();
+        ArrayList<Livros> listaLivros = new ArrayList<>();
 
         System.out.print("Bem vindo ao sistema de Sebo!");
 
-        Livros novoLivro = new Livros();
-        Pessoa novoAutor = new Pessoa();
 
         Scanner scanner = new Scanner(System.in);
 
         int opcao;
 
-        do{
+        do {
+            System.out.println("Escolha uma opção: 1 - Cadastrar Livro / 2 - Listar Livro / 0 - Sair");
+            opcao = scanner.nextInt();
 
+            switch (opcao) {
+                case 1:
+                    int opcaoLivro;
+                    Livros novoLivro = new Livros();
+                    Pessoa novoAutor = new Pessoa();
+
+                    System.out.println("Digite o nome do autor: ");
+                    novoAutor.nome = scanner.next();
+
+                    System.out.println("Digite o valor: ");
+                    novoLivro.preco = Float.parseFloat(scanner.next());
+
+                    System.out.println("Digite a data de Nascimento (dd/MM/aaaa): ");
+                    LocalDate date = LocalDate.parse(scanner.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                    Period periodo = Period.between(date, LocalDate.now());
+
+                    novoLivro.dataNascimento = date;
+
+                    if (periodo.getYears() >= 18) {
+                        System.out.println("A pessoa tem mais de 18 anos");
+                    } else {
+                        System.out.println("A pessoa tem menos de 18 anos. Retornando menu...");
+                        break;
+                    }
+
+                    break;
+
+                case 2:
+                    if (listaLivro.size() > 0) {
+                        for (listaLivros cadaLivro : listaLivro) {
+                            System.out.println();
+                            System.out.println("Nome: " + cadaLivro.nome);
+                            System.out.println("Preço: " + cadaLivro.preco);
+                            System.out.println("Data de Nascimento: " + cadaLivro.dataNascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+
+
+                        }
+                        opcaoLivro = scanner.nextInt();
+
+                    } else {
+                        System.out.println("Lista vazia");
+                    }
+
+                    break;
+
+            case 0:
+                System.out.println("Voltando ao menu anterior");
+                break;
+            default:
+                System.out.println("Opção inválida, por favor digite uma opção válida!");
+                break;
         }
+
+        } while (opcao != 0);
+    break;
+    }
+}

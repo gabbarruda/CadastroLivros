@@ -1,4 +1,4 @@
 public class Pessoa {
     public String nome;
-    public String localNasc;
+    public String dataNascimento;
 }
