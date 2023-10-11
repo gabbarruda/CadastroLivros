@@ -47,8 +47,8 @@ public class Main {
                     break;
 
                 case 2:
-                    if (listaLivro.size() > 0) {
-                        for (listaLivros cadaLivro : listaLivro) {
+                    if (listaLivros.size() > 0) {
+                        for (Livros cadaLivro : listaLivros) {
                             System.out.println();
                             System.out.println("Nome: " + cadaLivro.nome);
                             System.out.println("Preço: " + cadaLivro.preco);
