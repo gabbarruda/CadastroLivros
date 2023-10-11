@@ -31,17 +31,17 @@ public class Main {
                     System.out.println("Digite o valor: ");
                     novoLivro.preco = Float.parseFloat(scanner.next());
 
-                    System.out.println("Digite a data de Nascimento (dd/MM/aaaa): ");
+                    System.out.println("Digite a data de lançamento (dd/MM/aaaa): ");
                     LocalDate date = LocalDate.parse(scanner.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                     Period periodo = Period.between(date, LocalDate.now());
 
-                    novoLivro.dataNascimento = date;
+                    novoLivro.datalancamento = date;
 
 
                     if (periodo.getYears() >5) {
-                        System.out.println("A pessoa tem mais de 5 anos");
+                        System.out.println("O lançamento tem mais de 5 anos");
                     } else {
-                        System.out.println("A pessoa tem menos de 5 anos. Retornando menu...");
+                        System.out.println("A lançamento tem menos de 5 anos. Retornando menu...");
                         break;
                     }
 
@@ -56,7 +56,7 @@ public class Main {
                             System.out.println();
                             System.out.println("Nome: " + cadaLivro.nome);
                             System.out.println("Preço: " + cadaLivro.preco);
-                            System.out.println("Data de Nascimento: " + cadaLivro.dataNascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                            System.out.println("Data de Lançamento: " + cadaLivro.datalancamento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
                             System.out.println();
                         }
                         opcaoLivro = scanner.nextInt();
